@@ -1,31 +1,39 @@
 package com.example.marijacivovic.restoran;
 
+import android.content.Intent;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
-public class PrijavaNaSistemActivity extends AppCompatActivity {
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+
+
+public class PrijavaNaSistemActivity extends ActionBarActivity {
+
+    Firebase ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prijava_na_sistem);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        ref = new Firebase("https://brilliant-inferno-9405.firebaseio.com");
+        android.support.v7.widget.Toolbar actionToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.signin_toolbar);
+        setSupportActionBar(actionToolbar);
+        actionToolbar.setLogo(R.mipmap.ic_launcher);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        android.support.v7.widget.Toolbar actionToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.signin_toolbar);
+        actionToolbar.setTitle("   Red paw");
     }
 
     @Override
@@ -48,5 +56,26 @@ public class PrijavaNaSistemActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onSignIn(final View view) {
+        final EditText emailBox = (EditText) findViewById(R.id.email_box);
+        final EditText passwordBox = (EditText) findViewById(R.id.password_box);
+
+        ref.authWithPassword(emailBox.getText().toString(), passwordBox.getText().toString(), new Firebase.AuthResultHandler() {
+            @Override
+            public void onAuthenticated(AuthData authData) {
+                Log.d("Auth", "User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
+               // Intent i = new Intent(SignInActivity.this, AnimalsActivity.class);
+                //startActivity(i);
+            }
+            @Override
+            public void onAuthenticationError(FirebaseError firebaseError) {
+                Log.e("Auth", "Failed authentication!");
+                emailBox.setText("");
+                passwordBox.setText("");
+                Toast.makeText(view.getContext(), getString(R.string.failed_login), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
