@@ -1,39 +1,54 @@
 package com.example.marijacivovic.restoran;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Debug;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
+import java.util.List;
 
-public class PrijavaNaSistemActivity extends ActionBarActivity {
+import domen.*;
+import util.DaLiSteSigurniDialogFragment;
+import util.SingletonHolder;
 
-    Firebase ref;
+
+public class PrijavaNaSistemActivity extends AppCompatActivity {
+    EditText username_box;
+    EditText password_box;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prijava_na_sistem);
 
-        ref = new Firebase("https://brilliant-inferno-9405.firebaseio.com");
         android.support.v7.widget.Toolbar actionToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.signin_toolbar);
         setSupportActionBar(actionToolbar);
-        actionToolbar.setLogo(R.mipmap.ic_launcher);
+        actionToolbar.setLogo(R.mipmap.moj_logo);
+        username_box = (EditText) findViewById(R.id.username_box);
+        password_box = (EditText) findViewById(R.id.password_box);
     }
+
     @Override
     public void onResume() {
         super.onResume();
         android.support.v7.widget.Toolbar actionToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.signin_toolbar);
-        actionToolbar.setTitle("   Red paw");
+        actionToolbar.setTitle("       Kika express");
     }
 
     @Override
@@ -45,37 +60,81 @@ public class PrijavaNaSistemActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.menu_moj_nalog:
+                Intent intent = new Intent(PrijavaNaSistemActivity.this, MojNalogActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.menu_odjava:
+                new DaLiSteSigurniDialogFragment().show(getFragmentManager(), "Tag");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public void onSignIn(final View view) {
-        final EditText emailBox = (EditText) findViewById(R.id.email_box);
-        final EditText passwordBox = (EditText) findViewById(R.id.password_box);
+        boolean postoji = false;
+        Korisnik ulogovani = null;
+        String korisnickoIme = username_box.getText().toString().trim();
+        if (!korisnickoIme.equals("")) {
+            for (Korisnik k : SingletonHolder.getInstance().getKorisnici()) {
+                if (k.getKorisnickoIme().equals(korisnickoIme)) {
+                    postoji = true;
+                    ulogovani = k;
+                    break;
 
-        ref.authWithPassword(emailBox.getText().toString(), passwordBox.getText().toString(), new Firebase.AuthResultHandler() {
-            @Override
-            public void onAuthenticated(AuthData authData) {
-                Log.d("Auth", "User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
-               // Intent i = new Intent(SignInActivity.this, AnimalsActivity.class);
-                //startActivity(i);
+                }
             }
-            @Override
-            public void onAuthenticationError(FirebaseError firebaseError) {
-                Log.e("Auth", "Failed authentication!");
-                emailBox.setText("");
-                passwordBox.setText("");
-                Toast.makeText(view.getContext(), getString(R.string.failed_login), Toast.LENGTH_SHORT).show();
+            if (postoji) {
+                SingletonHolder.getInstance().setUlogovaniKorisnik(ulogovani);
+                String korisnickaSifra = new String(password_box.getText().toString());
+                if (!korisnickaSifra.equals("")) {
+
+                    if (korisnickoIme.equals("admin")) {
+                        if (!korisnickaSifra.equals("admin")) {
+                            Context context = getApplicationContext();
+                            SingletonHolder.showToast("Pogrešna lozinka!", context);
+                        }
+                        Intent intent = new Intent(PrijavaNaSistemActivity.this, AdministratorActivity.class);
+                        startActivity(intent);
+                    } else {
+                        List<Korisnik> korisnici = SingletonHolder.getInstance().getKorisnici();
+                        boolean sifraOk = false;
+                        for (Korisnik korisnik : korisnici) {
+                            if (korisnik.getKorisnickoIme().equals(korisnickoIme)) {
+                                sifraOk = korisnik.getKorisnickaSifra().equals(korisnickaSifra);
+                                break;
+                            }
+                        }
+                        if (!sifraOk) {
+                            Context context = getApplicationContext();
+                            SingletonHolder.showToast("Pogrešna lozinka!", context);
+                        }
+                        Intent intent = new Intent(PrijavaNaSistemActivity.this, KonobarActivity.class);
+                        startActivity(intent);
+                    }
+                } else {
+                    Context context = getApplicationContext();
+                    SingletonHolder.showToast("Niste uneli korisničku šifru!", context);
+                }
+            } else {
+                Context context = getApplicationContext();
+                SingletonHolder.showToast("Pogrešno korisničko ime!", context);
             }
-        });
+        } else {
+            Context context = getApplicationContext();
+            SingletonHolder.showToast("Niste uneli korisničko ime!", context);
+            //TODO
+            Korisnik pomocni = new Korisnik();
+            pomocni.setKorisnickoIme("admin");
+            pomocni.setKorisnickaSifra("admin");
+            SingletonHolder.getInstance().setUlogovaniKorisnik(pomocni);
+            Intent intent = new Intent(PrijavaNaSistemActivity.this, AdministratorActivity.class);
+            startActivity(intent);
+        }
     }
+
+
 }
