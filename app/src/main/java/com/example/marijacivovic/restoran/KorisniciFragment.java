@@ -47,25 +47,22 @@ public class KorisniciFragment extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View view;
-            AnimalCardHolder viewHolder;
+            Korisnik viewHolder;
 
             Korisnik currentUser = usersInRestaurant.get(position % usersInRestaurant.size());
 
             if (convertView != null) {
                 view = convertView;
-                viewHolder = (AnimalCardHolder) view.getTag();
+                viewHolder = (Korisnik) view.getTag();
             } else {
-                LayoutInflater inf = LayoutInflater.from(AnimalsActivity.this);
-                view = inf.inflate(R.layout.animal_card, null);
+                LayoutInflater inf = LayoutInflater.from(AdministratorActivity.this);
+                view = inf.inflate(R.layout.korisnik_item, null);
 
                 viewHolder = new AnimalCardHolder();
-                viewHolder.animalPic = (ImageView) view.findViewById(R.id.animalPic);
                 viewHolder.animalDescription = (TextView) view.findViewById(R.id.animalDescription);
                 view.setTag(viewHolder);
             }
 
-
-            viewHolder.animalPic.setImageBitmap(Util.stringToBitmap(currentAnimal.getImg()));
             viewHolder.animalDescription.setText(currentAnimal.getDescription());
             viewHolder.position = position;
 
