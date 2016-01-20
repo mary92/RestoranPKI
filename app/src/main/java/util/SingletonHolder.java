@@ -26,6 +26,9 @@ import java.util.List;
 public final class SingletonHolder {
 
     private static SingletonHolder instance;
+    public static String izabranaKategorijaNarudzbine = "";
+    public static String izabranaPotkategorijaNarudzbine = "";
+    public static String izabranaStavkaNarudzbine = "";
     private List<Kategorija> kategorije = new LinkedList<>();
     private List<Potkategorija> potkategorije = new LinkedList<>();
     private List<StavkaMenija> stavkeMenija = new LinkedList<>();

@@ -15,6 +15,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import domen.Kategorija;
+import domen.Potkategorija;
+import domen.StavkaMenija;
+import domen.StavkaNarudzbine;
 import util.SingletonHolder;
 
 public class NarudzbineFragment extends Fragment {
@@ -22,29 +25,75 @@ public class NarudzbineFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_narudzbine, container, false);
-        // Add adapter, and action listener for kategorija spinner.
+        // Kategorije
         Spinner spinnerKategorija = (Spinner) view.findViewById(R.id.narudzbine_search_kategorija);
-        List<Kategorija> orders = SingletonHolder.getInstance().getKategorije();
-        List<String> ordersStrings = new LinkedList<>();
-        for (Kategorija order : orders)
-            ordersStrings.add(order.getNaziv());
-        //spinner.setAdapter(new UserTypeAdapter(this, R.id.narudzbine_search_kategorija, ordersStrings));
-        ArrayAdapter<String> adapterArray = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, ordersStrings);
+        List<Kategorija> kategorije = SingletonHolder.getInstance().getKategorije();
+        List<String> kategorijeStrings = new LinkedList<>();
+        for (Kategorija order : kategorije)
+            kategorijeStrings.add(order.getNaziv());
+        ArrayAdapter<String> adapterArray = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, kategorijeStrings);
         adapterArray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerKategorija.setAdapter(adapterArray);
         spinnerKategorija.setOnItemSelectedListener(new KategorijaSpinnerListener());
+        //Potkategorije
+        Spinner spinnerPotkategorija = (Spinner) view.findViewById(R.id.narudzbine_search_potkategorija);
+        List<Potkategorija> potkategorije = SingletonHolder.getInstance().getPotkategorije();
+        kategorijeStrings = new LinkedList<>();
+        for (Potkategorija potkat : potkategorije)
+            kategorijeStrings.add(potkat.getNaziv());
+        adapterArray = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, kategorijeStrings);
+        adapterArray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerKategorija.setAdapter(adapterArray);
+        spinnerKategorija.setOnItemSelectedListener(new PotkategorijaSpinnerListener());
+        //Stavke
+        Spinner spinnerStavka = (Spinner) view.findViewById(R.id.narudzbine_search_stavka);
+        List<StavkaMenija> stavke = SingletonHolder.getInstance().getStavkeMenija();
+        kategorijeStrings = new LinkedList<>();
+        for (StavkaMenija stavka : stavke)
+            kategorijeStrings.add(stavka.getNaziv());
+        adapterArray = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, kategorijeStrings);
+        adapterArray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerKategorija.setAdapter(adapterArray);
+        spinnerKategorija.setOnItemSelectedListener(new StavkaSpinnerListener());
         return view;
     }
     public class KategorijaSpinnerListener implements AdapterView.OnItemSelectedListener {
         String tip;
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            tip = parent.getItemAtPosition(position).toString();
+            SingletonHolder.izabranaKategorijaNarudzbine = parent.getItemAtPosition(position).toString();
             Log.d("Kategorija", tip);
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
+            tip = "";
+        }
+    }
+    public class PotkategorijaSpinnerListener implements AdapterView.OnItemSelectedListener {
+        String tip;
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            SingletonHolder.izabranaPotkategorijaNarudzbine = parent.getItemAtPosition(position).toString();
+            Log.d("Potkategorija", tip);
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+            tip = "";
+        }
+    }
+    public class StavkaSpinnerListener implements AdapterView.OnItemSelectedListener {
+        String tip;
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            SingletonHolder.izabranaStavkaNarudzbine = parent.getItemAtPosition(position).toString();
+            Log.d("Stavka", tip);
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+            SingletonHolder.izabranaStavkaNarudzbine = "";
             tip = "";
         }
     }
