@@ -33,7 +33,8 @@ public final class SingletonHolder {
     private List<Narudzbina> narudzbine = new LinkedList<>();
 
     private Korisnik ulogovaniKorisnik;
-
+    private List<Korisnik> searchKorisnici = new LinkedList<>();
+    private List<Narudzbina> searchNarudzbine = new LinkedList<>();
     public SingletonHolder() {
         //kategorije
         Kategorija k1 = new Kategorija();
@@ -252,4 +253,18 @@ public final class SingletonHolder {
         return null;
     }
 
+    public List<Korisnik> getSearchKorisnici() {
+        return searchKorisnici;
+    }
+
+    public void setSearchKorisnici(List<Korisnik> searchKorisnici) {
+        this.searchKorisnici = searchKorisnici;
+    }
+    public List<Narudzbina> getSearchNarudzbine() {
+        return searchNarudzbine;
+    }
+
+    public void setSearchNarudzbine(List<Narudzbina> searchNarudzbine) {
+        this.searchNarudzbine = searchNarudzbine;
+    }
 }

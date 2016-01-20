@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id = "@+id/animalCard"
+    android:id = "@+id/meni_item"
     android:orientation="horizontal"
     android:background="#ffffff"
     android:layout_marginTop="10dp"
@@ -9,24 +9,14 @@
     android:layout_width="fill_parent"
     android:layout_height="100dp">
 
-    <!--<ImageView-->
-        <!--android:id="@+id/animalPic"-->
-        <!--android:layout_width="80dp"-->
-        <!--android:layout_height="80dp"-->
-        <!--android:layout_marginLeft="10dp"-->
-        <!--android:scaleType="centerCrop"-->
-        <!--android:adjustViewBounds="true"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:src="@drawable/default_dog"/>-->
-
     <TextView
-        android:id="@+id/userDescription"
+        android:id="@+id/itemDescription"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_centerVertical="true"
         android:layout_margin="5dp"
         android:padding="5dp"
-        android:layout_toLeftOf="@+id/card_layout" />
+        android:layout_toLeftOf="@id/card_layout"/>
 
     <RelativeLayout
         android:id="@+id/card_layout"
@@ -35,14 +25,26 @@
         android:layout_marginRight="5dp"
         android:layout_alignParentRight="true">
 
+        <Button
+            android:id="@+id/modify_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_mode_edit_black_24dp"
+            android:onClick="editItem"
+            android:layout_alignParentTop="true"
+            android:focusable="true"/>
 
         <Button
             android:id="@+id/remove_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="@drawable/ic_delete_black_24dp"
+            android:layout_below="@id/modify_btn"
+            android:layout_alignLeft="@id/modify_btn"
+            android:layout_alignRight="@id/modify_btn"
             android:layout_marginTop="20dp"
-            android:onClick="removeUser"
+            android:onClick="removeItem"
             android:focusable="true"/>
 
     </RelativeLayout>

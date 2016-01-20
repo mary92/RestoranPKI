@@ -1,16 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.marijacivovic.restoran.KonobarActivity">
+    tools:context="com.example.marijacivovic.restoran.KorisniciDodajActivity">
     <item
         android:id="@+id/menu_moj_nalog"
         android:orderInCategory="1"
-        android:title="@string/moj_nalog"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+        android:title="@string/moj_nalog" />
 
-    <item
-        android:id="@+id/menu_odjava"
-        android:orderInCategory="100"
+    <item android:id="@+id/menu_odjava"
         android:title="@string/odjava"
+        android:orderInCategory="100"
         app:showAsAction="never" />
 </menu>

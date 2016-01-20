@@ -1,0 +1,182 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.marijacivovic.restoran.KorisniciDodajActivity">
+
+    <include
+        android:id="@+id/signin_toolbar"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/label_nov_korisnik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signin_toolbar"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Nov korisnik"
+        android:textSize="20dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dodaj_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Korisnicko ime*" />
+
+        <EditText
+            android:id="@+id/dodaj_username_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dodaj_username"
+            android:layout_marginLeft="10dp"
+            android:minWidth="200dp"
+            android:password="true" />
+
+        <ImageView
+            android:id="@+id/dodaj_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignTop="@id/dodaj_username"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/dodaj_username_box"
+            android:src="@drawable/default_dog" />
+
+        <TextView
+            android:id="@+id/dodaj_lozinka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dodaj_username_box"
+            android:layout_marginLeft="10dp"
+            android:text="Lozinka*" />
+
+        <EditText
+            android:id="@+id/dodaj_lozinka_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dodaj_lozinka"
+            android:layout_marginLeft="10dp"
+            android:minWidth="200dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/dodaj_ime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dodaj_lozinka_box"
+        android:layout_marginLeft="10dp"
+        android:text="Ime*" />
+
+    <EditText
+        android:id="@+id/dodaj_ime_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dodaj_ime"
+        android:layout_marginLeft="10dp"
+        android:minWidth="200dp" />
+
+    <TextView
+        android:id="@+id/dodaj_prezime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dodaj_ime_box"
+        android:layout_marginLeft="10dp"
+        android:text="Prezime*" />
+
+    <EditText
+        android:id="@+id/dodaj_prezime_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dodaj_lozinka"
+        android:layout_marginLeft="10dp"
+        android:minWidth="200dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dodaj_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Email" />
+
+        <EditText
+            android:id="@+id/dodaj_email_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dodaj_email"
+            android:layout_marginLeft="10dp"
+            android:minWidth="200dp" />
+        <Spinner
+            android:id="@+id/dodaj_spinner"
+            android:prompt="@string/type_prompt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/dodaj_email_box">
+        </Spinner>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/dodaj_broj_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dodaj_email_box"
+        android:layout_marginLeft="10dp"
+        android:text="Broj telefona" />
+
+    <EditText
+        android:id="@+id/dodaj_broj_tel_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dodaj_broj_tel"
+        android:layout_marginLeft="10dp"
+        android:minWidth="200dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dodaj_slika"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Slika" />
+
+        <EditText
+            android:id="@+id/dodaj_slika_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dodaj_slika"
+            android:layout_marginLeft="10dp"
+            android:minWidth="200dp" />
+
+        <Button
+            android:id="@+id/dodaj_dodaj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/dodaj_slika_box"
+            android:layout_toRightOf="@id/dodaj_slika_box"
+            android:onClick="onClickDodajBtn"
+            android:text="Dodaj" />
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/add_shelter_submitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickPotvrdiBtn"
+        android:text="Potvrdi" />
+
+</LinearLayout>

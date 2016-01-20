@@ -16,7 +16,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
-        android:onClick="onClickSearch"
+        android:onClick="onClickSearchUser"
         android:background="@drawable/ic_search_black_24dp" />
 
     <ListView

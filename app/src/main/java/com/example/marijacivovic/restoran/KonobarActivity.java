@@ -1,9 +1,12 @@
 package com.example.marijacivovic.restoran;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import util.DaLiSteSigurniDialogFragment;
 
 public class KonobarActivity extends AppCompatActivity {
 
@@ -11,13 +14,9 @@ public class KonobarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_konobar);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
         android.support.v7.widget.Toolbar actionToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.signin_toolbar);
-        actionToolbar.setTitle("       Kika express");
+        setSupportActionBar(actionToolbar);
+        actionToolbar.setLogo(R.mipmap.moj_logo);
     }
 
     @Override
@@ -28,17 +27,25 @@ public class KonobarActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        android.support.v7.widget.Toolbar actionToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.signin_toolbar);
+        actionToolbar.setTitle("       Kika express");
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.menu_moj_nalog:
+                Intent intent = new Intent(KonobarActivity.this, MojNalogActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.menu_odjava:
+                new DaLiSteSigurniDialogFragment().show(getFragmentManager(), "Tag");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.marijacivovic.restoran">
+    package="com.example.marijacivovic.restoran" >
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".PrijavaNaSistemActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MojNalogActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".AdministratorActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".KonobarActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
+        <activity
+            android:name=".KorisniciDodajActivity"
+            android:label="@string/title_activity_korisnici_dodaj" >
+        </activity>
+        <activity
+            android:name=".KorisniciSearchActivity"
+            android:label="@string/title_activity_korisnici_search" >
+        </activity>
+        <activity
+            android:name=".RezultatiSearchActivity"
+            android:label="@string/title_activity_rezultati_search" >
+        </activity>
+        <activity
+            android:name=".RezultatiOrderSearchActivity"
+            android:label="@string/title_activity_rezultati_order_search" >
+        </activity>
     </application>
 
 </manifest>
