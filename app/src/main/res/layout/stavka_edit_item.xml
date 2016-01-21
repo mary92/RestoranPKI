@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/meni_item"
+    android:layout_width="fill_parent"
+    android:layout_height="100dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="10dp"
+    android:background="#ffffff"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/stavkaDescription"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@id/card_layout"
+        android:layout_weight="1"
+        android:padding="5dp" />
+
+    <RelativeLayout
+        android:id="@+id/card_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp">
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:id="@+id/remove_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@id/checkbox"
+            android:layout_alignRight="@id/checkbox"
+            android:layout_below="@id/checkbox"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_delete_black_24dp"
+            android:focusable="true"
+            android:onClick="removeStavka" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

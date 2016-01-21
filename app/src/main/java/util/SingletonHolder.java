@@ -34,6 +34,7 @@ public final class SingletonHolder {
     private List<StavkaMenija> stavkeMenija = new LinkedList<>();
     private List<Korisnik> korisnici = new LinkedList<>();
     private List<Narudzbina> narudzbine = new LinkedList<>();
+    private List<StavkaNarudzbine >konobarStavke=new LinkedList<>();
 
     private Korisnik ulogovaniKorisnik;
     private List<Korisnik> searchKorisnici = new LinkedList<>();
@@ -41,6 +42,15 @@ public final class SingletonHolder {
     public Narudzbina adminSelektovanaNarudzbina;
     public Korisnik adminSelektovaniKorisnik;
     public boolean narudzbinaKreiranje;
+    int indeks;
+
+    public int getIndeks() {
+        return indeks;
+    }
+
+    public void setIndeks(int indeks) {
+        this.indeks = indeks;
+    }
 
     public SingletonHolder() {
         //kategorije
@@ -273,5 +283,13 @@ public final class SingletonHolder {
 
     public void setSearchNarudzbine(List<Narudzbina> searchNarudzbine) {
         this.searchNarudzbine = searchNarudzbine;
+    }
+
+    public List<StavkaNarudzbine> getKonobarStavke() {
+        return konobarStavke;
+    }
+
+    public void setKonobarStavke(List<StavkaNarudzbine> konobarStavke) {
+        this.konobarStavke = konobarStavke;
     }
 }

@@ -1,0 +1,122 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/signin_toolbar"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/label_moj_nalog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signin_toolbar"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Korisnicki nalog"
+        android:textSize="20dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/moj_nalog_ime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Ime" />
+
+        <EditText
+            android:id="@+id/moj_nalog_ime_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/moj_nalog_ime"
+            android:layout_marginLeft="10dp"
+            android:editable="false"
+            android:minWidth="200dp" />
+
+        <ImageView
+            android:id="@+id/moj_nalog_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignTop="@id/moj_nalog_ime_box"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/moj_nalog_ime_box"
+            android:src="@drawable/default_dog" />
+
+        <TextView
+            android:id="@+id/moj_nalog_prezime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/moj_nalog_ime_box"
+            android:layout_marginLeft="10dp"
+            android:text="Prezime" />
+
+        <EditText
+            android:id="@+id/moj_nalog_prezime_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/moj_nalog_prezime"
+            android:layout_marginLeft="10dp"
+            android:editable="false"
+            android:minWidth="200dp" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/moj_nalog_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/moj_nalog_prezime_box"
+        android:layout_marginLeft="10dp"
+        android:text="Email" />
+
+    <EditText
+        android:id="@+id/moj_nalog_email_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/moj_nalog_email"
+        android:layout_marginLeft="10dp"
+        android:editable="false"
+        android:minWidth="200dp" />
+
+    <TextView
+        android:id="@+id/moj_nalog_broj_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/moj_nalog_email_box"
+        android:layout_marginLeft="10dp"
+        android:text="Broj telefona" />
+
+    <EditText
+        android:id="@+id/moj_nalog_broj_tel_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/moj_nalog_broj_tel"
+        android:layout_marginLeft="10dp"
+        android:editable="false"
+        android:minWidth="200dp" />
+
+    <TextView
+        android:id="@+id/moj_nalog_slika"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Slika" />
+
+    <EditText
+        android:id="@+id/moj_nalog_slika_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/moj_nalog_slika"
+        android:layout_marginLeft="10dp"
+        android:editable="false"
+        android:minWidth="200dp" />
+
+</LinearLayout>

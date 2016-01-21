@@ -7,37 +7,13 @@
         android:id="@+id/signin_toolbar"
         layout="@layout/toolbar" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kategorije"
-        android:id="@+id/admin_kategrije"
-        android:layout_below="@+id/signin_toolbar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Potkategorije"
-        android:id="@+id/admin_potkategorije"
-        android:layout_alignTop="@+id/admin_kategrije"
-        android:layout_toRightOf="@+id/admin_kategrije"
-        android:layout_toEndOf="@+id/admin_kategrije" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stavke"
-        android:id="@+id/admin_stavke"
-        android:layout_alignTop="@+id/admin_potkategorije"
-        android:layout_toRightOf="@+id/admin_potkategorije"
-        android:layout_toEndOf="@+id/admin_potkategorije" />
-    <ListView
-        android:id="@+id/searched_users_listView"
+    <ExpandableListView
         android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
-        android:layout_below="@id/admin_kategrije"></ListView>
+        android:id="@+id/ParentLevel"
+        android:groupIndicator="@null"
+        android:layout_height="fill_parent">
+    </ExpandableListView>
+
+
 
 </RelativeLayout>

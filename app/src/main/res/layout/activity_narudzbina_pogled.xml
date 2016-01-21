@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.marijacivovic.restoran.NarudzbinaPogledActivity">
+
+    <include
+        android:id="@+id/signin_toolbar"
+        layout="@layout/toolbar" />
+    <TextView
+        android:id="@+id/narudzbina_pregled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@id/signin_toolbar"
+        android:text="Pregled narudzbine"
+        android:textSize="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/narudzbina_pregled"
+        android:id="@+id/narudzbina_sto_placeno">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/narudzbina_sto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Sto" />
+
+            <EditText
+                android:id="@+id/narudzbina_sto_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/narudzbina_sto"
+                android:layout_marginLeft="10dp"
+                android:minWidth="180dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/narudzbina_placeno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Placeno" />
+
+            <EditText
+                android:id="@+id/narudzbina_placeno_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/narudzbina_placeno"
+                android:layout_marginLeft="10dp"
+                android:minWidth="180dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/narudzbina_stavke_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Stavke narudzbine"
+        android:layout_below="@id/narudzbina_sto_placeno"/>
+    <ListView
+        android:id="@+id/stavke_listView"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/narudzbina_stavke_label"></ListView>
+
+</RelativeLayout>
+

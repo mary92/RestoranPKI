@@ -78,10 +78,68 @@ public class KorisniciSearchActivity extends AppCompatActivity {
         //TODO
         List<Korisnik> searchKorisnici = new LinkedList<>();
         //change this
+
         searchKorisnici = SingletonHolder.getInstance().getKorisnici();
         //the actual search here
-        //editTextKorisnickoIme.getText().toString() for example
-        if (searchKorisnici.size() > 0) {
+        
+
+        if (!editTextKorisnickoIme.getText().toString().equals("")) {
+            for (int i = searchKorisnici.size() - 1; i >= 0; i--) {
+                Korisnik n = searchKorisnici.get(i);
+                if (!n.getKorisnickoIme().contains(editTextKorisnickoIme.getText().toString())) {
+                    searchKorisnici.remove(n);
+                }
+            }
+        }
+
+        
+
+        if (!editTextIme.getText().toString().equals("")) {
+            for (int i = searchKorisnici.size() - 1; i >= 0; i--) {
+                Korisnik n = searchKorisnici.get(i);
+                if (!n.getIme().contains(editTextIme.getText().toString())) {
+                    searchKorisnici.remove(n);
+                }
+            }
+        }
+
+        if (!editTextPrezime.getText().toString().equals("")) {
+            for (int i = searchKorisnici.size() - 1; i >= 0; i--) {
+                Korisnik n = searchKorisnici.get(i);
+                if (!n.getPrezime().contains(editTextPrezime.getText().toString())) {
+                    searchKorisnici.remove(n);
+                }
+            }
+        }
+
+
+            for (int i = searchKorisnici.size() - 1; i >= 0; i--) {
+                Korisnik n = searchKorisnici.get(i);
+                if (!n.getTipKorisnika().equals(tip)) {
+                    searchKorisnici.remove(n);
+                }
+            }
+
+
+        if (!editTextBrojTelefona.getText().toString().equals("")) {
+            for (int i = searchKorisnici.size() - 1; i >= 0; i--) {
+                Korisnik n = searchKorisnici.get(i);
+                if (!n.getTelefon().contains(editTextBrojTelefona.getText().toString())) {
+                    searchKorisnici.remove(n);
+                }
+            }
+        }
+
+        if (!editTextEmail.getText().toString().equals("")) {
+            for (int i = searchKorisnici.size() - 1; i >= 0; i--) {
+                Korisnik n = searchKorisnici.get(i);
+                if (!n.getEmail().contains(editTextEmail.getText().toString())) {
+                    searchKorisnici.remove(n);
+                }
+            }
+        }
+
+              if (searchKorisnici.size() > 0) {
             SingletonHolder.getInstance().setSearchKorisnici(searchKorisnici);
             Intent intent = new Intent(KorisniciSearchActivity.this, RezultatiKorisnikSearchActivity.class);
             startActivity(intent);
@@ -95,15 +153,15 @@ public class KorisniciSearchActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             if (parent.getItemAtPosition(position).equals("Administrator")) {
-                tip = "Administrator";
+                tip = "administrator";
             } else if (parent.getItemAtPosition(position).equals("Konobar")) {
-                tip = "Konobar";
+                tip = "konobar";
             }
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
-            tip = "Administrator";
+            tip = "administrator";
         }
     }
 }
