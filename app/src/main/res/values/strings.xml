@@ -26,4 +26,8 @@
     <string name="title_activity_korisnici_search">KorisniciSearchActivity</string>
     <string name="title_activity_rezultati_search">RezultatiSearchActivity</string>
     <string name="title_activity_rezultati_order_search">RezultatiOrderSearchActivity</string>
+    <string name="title_activity_narudzbina_pogled">NarudzbinaPogledActivity</string>
+    <string name="title_activity_korisnicki_nalog">KorisnickiNalogActivity</string>
+    <string name="title_activity_narudzbina_editovanje">NarudzbinaEditovanjeActivity</string>
+    <string name="title_activity_stavke_narudzbine_dodaj">StavkeNarudzbineDodajActivity</string>
 </resources>

@@ -2,34 +2,26 @@ package com.example.marijacivovic.restoran;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import domen.Kategorija;
 import domen.Korisnik;
 import domen.Narudzbina;
 import util.BrisanjeKorisnikaDialogFragment;
 import util.DaLiSteSigurniDialogFragment;
 import util.PagerAdapter;
 import util.SingletonHolder;
-import util.UserTypeAdapter;
 
 public class AdministratorActivity extends AppCompatActivity {
 
@@ -131,7 +123,7 @@ public class AdministratorActivity extends AppCompatActivity {
         //the actual search here
         if (searchNarudzbine.size() > 0) {
             SingletonHolder.getInstance().setSearchNarudzbine(searchNarudzbine);
-            Intent intent = new Intent(AdministratorActivity.this, RezultatiOrderSearchActivity.class);
+            Intent intent = new Intent(AdministratorActivity.this, RezultatiNarudzbinaSearchActivity.class);
             startActivity(intent);
         } else {
             Context context = getApplicationContext();

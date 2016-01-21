@@ -20,7 +20,7 @@ import util.SingletonHolder;
 public class KorisniciFragment extends Fragment {
     List<Korisnik> usersInRestaurant;
     ListView listView;
-    private MyUserAdapter listAdapter;
+    MyUserAdapter listAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_korisnici, container, false);
@@ -28,6 +28,7 @@ public class KorisniciFragment extends Fragment {
         usersInRestaurant = SingletonHolder.getInstance().getKorisnici();
         listAdapter = new MyUserAdapter();
         listView.setAdapter(listAdapter);
+
         return rootView;
     }
 

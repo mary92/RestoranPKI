@@ -144,7 +144,7 @@ public class KorisniciDodajActivity extends AppCompatActivity {
                 k.setTipKorisnika(tip);
                 korisnici.add(k);
                 Context context = getApplicationContext();
-                SingletonHolder.showToast("Uspešno ste izmenili nalog!", context);
+                SingletonHolder.showToast("Uspešno ste dodali korisnika!", context);
             } else {
                 Context context = getApplicationContext();
                 SingletonHolder.showToast("Korisnicko ime vec postoji", context);

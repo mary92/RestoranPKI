@@ -31,7 +31,7 @@ public class MojNalogActivity extends AppCompatActivity {
     ImageView slika;
     EditText editTextLozinka, editTextIme, editTextPrezime, editTextBrojTelefona,
             editTextEmail, editTextSlika;
-    private Korisnik korisnik;
+    Korisnik korisnik;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +120,6 @@ public class MojNalogActivity extends AppCompatActivity {
                     slika.setImageURI(uri);
                     String path = uri.getPath();
                     editTextSlika.setText(path);
-                    Log.d("Marija", "File Path: " + path);
                 }
                 break;
         }

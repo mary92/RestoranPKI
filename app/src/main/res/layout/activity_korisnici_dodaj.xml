@@ -37,8 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/dodaj_username"
             android:layout_marginLeft="10dp"
-            android:minWidth="200dp"
-            android:password="true" />
+            android:minWidth="200dp" />
 
         <ImageView
             android:id="@+id/dodaj_image"

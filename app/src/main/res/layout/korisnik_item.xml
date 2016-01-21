@@ -9,16 +9,6 @@
     android:layout_width="fill_parent"
     android:layout_height="100dp">
 
-    <!--<ImageView-->
-        <!--android:id="@+id/animalPic"-->
-        <!--android:layout_width="80dp"-->
-        <!--android:layout_height="80dp"-->
-        <!--android:layout_marginLeft="10dp"-->
-        <!--android:scaleType="centerCrop"-->
-        <!--android:adjustViewBounds="true"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:src="@drawable/default_dog"/>-->
-
     <TextView
         android:id="@+id/userDescription"
         android:layout_width="match_parent"
@@ -26,7 +16,9 @@
         android:layout_centerVertical="true"
         android:layout_margin="5dp"
         android:padding="5dp"
-        android:layout_toLeftOf="@+id/card_layout" />
+        android:layout_toLeftOf="@+id/card_layout"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
     <RelativeLayout
         android:id="@+id/card_layout"

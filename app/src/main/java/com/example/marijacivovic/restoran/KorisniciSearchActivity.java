@@ -83,7 +83,7 @@ public class KorisniciSearchActivity extends AppCompatActivity {
         //editTextKorisnickoIme.getText().toString() for example
         if (searchKorisnici.size() > 0) {
             SingletonHolder.getInstance().setSearchKorisnici(searchKorisnici);
-            Intent intent = new Intent(KorisniciSearchActivity.this, RezultatiSearchActivity.class);
+            Intent intent = new Intent(KorisniciSearchActivity.this, RezultatiKorisnikSearchActivity.class);
             startActivity(intent);
         } else {
             Context context = getApplicationContext();

@@ -9,8 +9,27 @@
         layout="@layout/toolbar" />
 
     <TextView
+        android:id="@+id/konobar_narudzbine_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_below="@id/signin_toolbar"
+        android:layout_marginBottom="5dp"
+        android:text="Narudzbine"
+        android:textSize="20dp" />
+
+    <ListView
+        android:id="@+id/narudzbine_listView"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/konobar_narudzbine_label"
+        android:layout_marginTop="8dp"></ListView>
+    <Button
+        android:id="@+id/narudzbine_addOrder_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/ic_add_circle_outline_black_48dp"
+        android:onClick="addOrder" />
 
 </RelativeLayout>

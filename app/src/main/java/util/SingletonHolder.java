@@ -26,9 +26,9 @@ import java.util.List;
 public final class SingletonHolder {
 
     private static SingletonHolder instance;
-    public static String izabranaKategorijaNarudzbine = "";
-    public static String izabranaPotkategorijaNarudzbine = "";
-    public static String izabranaStavkaNarudzbine = "";
+    public String izabranaKategorijaNarudzbine = "";
+    public String izabranaPotkategorijaNarudzbine = "";
+    public String izabranaStavkaNarudzbine = "";
     private List<Kategorija> kategorije = new LinkedList<>();
     private List<Potkategorija> potkategorije = new LinkedList<>();
     private List<StavkaMenija> stavkeMenija = new LinkedList<>();
@@ -38,6 +38,10 @@ public final class SingletonHolder {
     private Korisnik ulogovaniKorisnik;
     private List<Korisnik> searchKorisnici = new LinkedList<>();
     private List<Narudzbina> searchNarudzbine = new LinkedList<>();
+    public Narudzbina adminSelektovanaNarudzbina;
+    public Korisnik adminSelektovaniKorisnik;
+    public boolean narudzbinaKreiranje;
+
     public SingletonHolder() {
         //kategorije
         Kategorija k1 = new Kategorija();
@@ -136,14 +140,14 @@ public final class SingletonHolder {
         n1.getStavke().add(sn1);
 
         Narudzbina n2 = new Narudzbina();
-        n2.setSto("sto1");
+        n2.setSto("sto2");
         n2.setKonobar(ko3);
         n2.setVreme(new Date(2015, 10, 3, 12, 0));
         n2.getStavke().add(sn2);
         n2.getStavke().add(sn1);
 
         Narudzbina n3 = new Narudzbina();
-        n3.setSto("sto1");
+        n3.setSto("sto4");
         n3.setKonobar(ko3);
         n3.setVreme(new Date(2015, 10, 3, 8, 0));
         n3.getStavke().add(sn2);

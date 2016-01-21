@@ -122,6 +122,13 @@ public class PrijavaNaSistemActivity extends AppCompatActivity {
             } else {
                 Context context = getApplicationContext();
                 SingletonHolder.showToast("Pogrešno korisničko ime!", context);
+                //TODO
+                Korisnik pomocni = new Korisnik();
+                pomocni.setKorisnickoIme("koko");
+                pomocni.setKorisnickaSifra("koko");
+                SingletonHolder.getInstance().setUlogovaniKorisnik(pomocni);
+                Intent intent = new Intent(PrijavaNaSistemActivity.this, KonobarActivity.class);
+                startActivity(intent);
             }
         } else {
             Context context = getApplicationContext();

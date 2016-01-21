@@ -35,12 +35,28 @@
             android:label="@string/title_activity_korisnici_search" >
         </activity>
         <activity
-            android:name=".RezultatiSearchActivity"
+            android:name=".RezultatiKorisnikSearchActivity"
             android:label="@string/title_activity_rezultati_search" >
         </activity>
         <activity
-            android:name=".RezultatiOrderSearchActivity"
+            android:name=".RezultatiNarudzbinaSearchActivity"
             android:label="@string/title_activity_rezultati_order_search" >
+        </activity>
+        <activity
+            android:name=".NarudzbinaPogledActivity"
+            android:label="@string/title_activity_narudzbina_pogled" >
+        </activity>
+        <activity
+            android:name=".KorisnickiNalogActivity"
+            android:label="@string/title_activity_korisnicki_nalog" >
+        </activity>
+        <activity
+            android:name=".NarudzbinaEditovanjeActivity"
+            android:label="@string/title_activity_narudzbina_editovanje" >
+        </activity>
+        <activity
+            android:name=".StavkeNarudzbineDodajActivity"
+            android:label="@string/title_activity_stavke_narudzbine_dodaj" >
         </activity>
     </application>
 
